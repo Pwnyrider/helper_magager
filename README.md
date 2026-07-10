@@ -20,10 +20,6 @@ A Home Assistant custom integration that exposes services for creating persisten
 3. Go to **Settings → Devices & Services → Add Integration** and search for **Helper Manager**.
 4. Click through the one-step setup form (no options required).
 
-## Reloading
-
-After changing the integration files, use the **three-dot menu → Reload** on the Helper Manager card in Settings → Devices & Services, or call the `helper_manager.reload` action from Developer Tools.
-
 ## Services
 
 All services are **idempotent**: if a helper with the same name already exists the call is silently skipped.
