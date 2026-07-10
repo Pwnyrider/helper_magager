@@ -4,6 +4,17 @@ A Home Assistant custom integration that exposes services for creating persisten
 
 ## Installation
 
+### Option 1: HACS (recommended)
+
+1. In HACS, go to **Integrations → ⋮ → Custom repositories**.
+2. Add `https://github.com/Pwnyrider/helper_magager` as category **Integration**.
+3. Search for **Helper Manager** in HACS and click **Download**.
+4. Restart Home Assistant.
+5. Go to **Settings → Devices & Services → Add Integration** and search for **Helper Manager**.
+6. Click through the one-step setup form (no options required).
+
+### Option 2: Manual
+
 1. Copy the `custom_components/helper_manager/` folder into your HA config's `custom_components/` directory.
 2. Restart Home Assistant.
 3. Go to **Settings → Devices & Services → Add Integration** and search for **Helper Manager**.
