@@ -1,0 +1,246 @@
+create_input_text:
+  name: Create Input Text
+  description: >-
+    Creates a persistent input_text helper. If a helper with the same name
+    already exists it is silently skipped (idempotent).
+  fields:
+    name:
+      name: Name
+      description: Friendly name of the helper to create.
+      required: true
+      example: "My Text Helper"
+      selector:
+        text:
+    initial:
+      name: Initial value
+      description: Initial text value.
+      required: false
+      example: "hello"
+      selector:
+        text:
+    min:
+      name: Minimum length
+      description: Minimum number of characters (default 0).
+      required: false
+      default: 0
+      selector:
+        number:
+          min: 0
+          max: 255
+          mode: box
+    max:
+      name: Maximum length
+      description: Maximum number of characters (default 100).
+      required: false
+      default: 100
+      selector:
+        number:
+          min: 1
+          max: 255
+          mode: box
+    pattern:
+      name: Pattern
+      description: Regular expression that the value must match.
+      required: false
+      example: "[A-Za-z0-9]+"
+      selector:
+        text:
+    mode:
+      name: Mode
+      description: Display mode — text (default) or password.
+      required: false
+      default: text
+      selector:
+        select:
+          options:
+            - text
+            - password
+    icon:
+      name: Icon
+      description: Material Design Icon for the helper.
+      required: false
+      example: "mdi:form-textbox"
+      selector:
+        icon:
+
+create_input_boolean:
+  name: Create Input Boolean
+  description: >-
+    Creates a persistent input_boolean (toggle) helper. Silently skipped if
+    the helper already exists.
+  fields:
+    name:
+      name: Name
+      description: Friendly name of the helper to create.
+      required: true
+      example: "My Toggle"
+      selector:
+        text:
+    initial:
+      name: Initial value
+      description: Starting state of the toggle.
+      required: false
+      selector:
+        boolean:
+    icon:
+      name: Icon
+      description: Material Design Icon for the helper.
+      required: false
+      example: "mdi:toggle-switch"
+      selector:
+        icon:
+
+create_input_number:
+  name: Create Input Number
+  description: >-
+    Creates a persistent input_number helper. Silently skipped if the helper
+    already exists.
+  fields:
+    name:
+      name: Name
+      description: Friendly name of the helper to create.
+      required: true
+      example: "My Number"
+      selector:
+        text:
+    min:
+      name: Minimum value
+      description: Minimum allowed value.
+      required: true
+      example: 0
+      selector:
+        number:
+          mode: box
+          step: any
+    max:
+      name: Maximum value
+      description: Maximum allowed value.
+      required: true
+      example: 100
+      selector:
+        number:
+          mode: box
+          step: any
+    initial:
+      name: Initial value
+      description: Starting numeric value.
+      required: false
+      selector:
+        number:
+          mode: box
+          step: any
+    step:
+      name: Step size
+      description: Increment/decrement step (default 1).
+      required: false
+      default: 1
+      selector:
+        number:
+          min: 0.001
+          mode: box
+          step: any
+    mode:
+      name: Mode
+      description: Display mode — slider (default) or box.
+      required: false
+      default: slider
+      selector:
+        select:
+          options:
+            - slider
+            - box
+    unit_of_measurement:
+      name: Unit of measurement
+      description: Optional unit displayed alongside the value.
+      required: false
+      example: "°C"
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Material Design Icon for the helper.
+      required: false
+      example: "mdi:counter"
+      selector:
+        icon:
+
+create_input_select:
+  name: Create Input Select
+  description: >-
+    Creates a persistent input_select (dropdown) helper. Silently skipped if
+    the helper already exists.
+  fields:
+    name:
+      name: Name
+      description: Friendly name of the helper to create.
+      required: true
+      example: "My Dropdown"
+      selector:
+        text:
+    options:
+      name: Options
+      description: List of selectable options.
+      required: true
+      example:
+        - "Option A"
+        - "Option B"
+      selector:
+        object:
+    initial:
+      name: Initial option
+      description: Option selected on creation. Must be one of the listed options.
+      required: false
+      example: "Option A"
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Material Design Icon for the helper.
+      required: false
+      example: "mdi:format-list-bulleted"
+      selector:
+        icon:
+
+create_input_datetime:
+  name: Create Input Datetime
+  description: >-
+    Creates a persistent input_datetime helper. Silently skipped if the helper
+    already exists.
+  fields:
+    name:
+      name: Name
+      description: Friendly name of the helper to create.
+      required: true
+      example: "My Datetime"
+      selector:
+        text:
+    has_date:
+      name: Has date
+      description: Whether the helper stores a date component (default true).
+      required: false
+      default: true
+      selector:
+        boolean:
+    has_time:
+      name: Has time
+      description: Whether the helper stores a time component (default true).
+      required: false
+      default: true
+      selector:
+        boolean:
+    initial:
+      name: Initial value
+      description: >-
+        Initial date/time value. Format depends on has_date/has_time:
+        "YYYY-MM-DD HH:MM:SS", "YYYY-MM-DD", or "HH:MM:SS".
+      required: false
+      example: "2024-01-01 00:00:00"
+      selector:
+        text:
+    icon:
+      name: Icon
+      description: Material Design Icon for the helper.
+      required: false
+      example: "mdi:calendar-clock"
+      selector:
+        icon:
